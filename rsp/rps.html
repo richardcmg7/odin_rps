@@ -8,7 +8,51 @@
 </head>
 <body>
     <script>
-    
+        function computerPlay (){
+            var things = ['Rock', 'Paper', 'Scissor'];
+            var thing = things[Math.floor(Math.random()*things.length)];
+            return thing;
+        }
+        function playRound(playerSelection, computerSelection) {
+	            player = playerSelection.toUpperCase();
+                computer = computerSelection.toUpperCase();
+                if (player == "ROCK" && computer == "SCISSOR"){
+                    result = 1;
+                }else if(player == "ROCK" && computer == "PAPER"){
+                    result = 0;
+                }else if(player == "ROCK" && computer == "ROCK"){
+                    result = 2;
+                }
+                else if(player == "PAPER" && computer == "PAPER"){
+                    result = 2;
+                }else if(player == "SCISSOR" && computer == "SCISSOR"){
+                    result = 2;
+                }
+                else if(player == "PAPER" && computer == "ROCK"){
+                    result = 1;
+                }else if(player == "PAPER" && computer == "SCISSOR"){
+                    result = 0;
+                }else if(player == "SCISSOR" && computer == "ROCK"){
+                    result = 0;
+                }else if(player == "SCISSOR" && computer == "PAPER"){
+                    result = 1;
+                }
+                if(result == 1){
+                    return "You Win! " + player + " beat " + computer;
+                }else if (result == 0){
+                    return "You Lose "   + computer + " beat " + player;
+                } else{
+                    return "You Tie "   + computer + " same to " + player;
+                }
+        }
+        
+        function game(){
+            for (var i=0; i<5; i++){
+                var playerSelection = window.prompt( 'Intento '+ (i+1) + ' Writte: Rock, Scissor or Paper','Rock');
+                var computerSelection = computerPlay()
+                console.log(playRound(playerSelection, computerSelection))
+            }
+        }
     </script>
 </body>
 </html>
