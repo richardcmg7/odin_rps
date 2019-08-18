@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>manipulacion del DOM </title>
+</head>
+<body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container">
+    </div>
+    <button id="btn" onclick="alert('Hello World')">Click Me</button>
+    <div id="container">
+            <button id="1">Click Me</button>
+            <button id="2">Click Me</button>
+            <button id="3">Click Me</button>
+    </div>
+        
+  </body>
+
+</html>
+<script>
+    const container = document.querySelector('#container');
+    
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = 'This is the glorious text-content!';
+    
+    const pcontent = document.createElement('p');
+    pcontent.style.color = 'red';
+    pcontent.textContent = "Hey I’m red!";
+
+    const h3content = document.createElement('h3');
+    h3content.style.cssText = 'color: blue; background: white';
+    h3content.textContent = "I’m a blue h3!";
+
+    const divcontent = document.createElement('div');
+    divcontent.style.cssText = 'border: 1px; background-color: pink' ;
+
+    const pindiv = document.createElement('p');
+    const h1indiv = document.createElement('h1');
+    h1indiv.textContent = "I'm in div";
+    pindiv.textContent ="ME TOO";
+
+    divcontent.appendChild(h1indiv);
+    divcontent.appendChild(pindiv);
+
+    container.appendChild(content);
+    container.appendChild(pcontent);
+    container.appendChild(h3content);
+    container.appendChild(divcontent);
+
+    btn.addEventListener('click', function(e){
+    e.target.style.background = 'pink';
+
+    })
+
+    // buttons is a node list. It looks and acts much like an array.
+    const buttons = document.querySelectorAll('button');
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', (e) => {
+        alert(button.id);
+    });
+    });
+
+
+</script>
